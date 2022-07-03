@@ -1,4 +1,5 @@
 import { Fragment } from "react";
+import Register from "../Form/form";
 import MainHeader from "./MainHeader";
 
 const Layout = (props) => {
@@ -6,6 +7,7 @@ const Layout = (props) => {
     <Fragment>
       <MainHeader />
       <main>{props.children}</main>
+      <Register />
     </Fragment>
   );
 };

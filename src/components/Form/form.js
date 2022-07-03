@@ -1,6 +1,6 @@
 import React from "react";
 import { useRef, useState } from "react";
-import classes from "./Checkout.module.css";
+import classes from "./form.module.css";
 
 const isEmpty = (value) =>
   // will return true if empty
@@ -18,8 +18,11 @@ const Register = (props) => {
     postalCode: true,
   });
 
-  const nameInputRef = useRef();
-  const streetInputRef = useRef();
+  const firstNameInputRef = useRef();
+  const middleNameInputRef = useRef();
+  const lastNameInputRef = useRef();
+  const address1InputRef = useRef();
+  const address2InputRef = useRef();
   const postalInputRef = useRef();
   const cityInputRef = useRef();
 
@@ -69,34 +72,60 @@ const Register = (props) => {
   const streetControlClasses = ` ${classes.control} ${
     formInputsValidity.street ? "" : classes.invalid
   }`;
-  const cityControlClasses = ` ${classes.control} ${
+  const socialControlClasses = ` ${classes.control} ${
     formInputsValidity.city ? "" : classes.invalid
   }`;
-  const postalCodeControlClasses = ` ${classes.control} ${
+  const phoneControlClasses = ` ${classes.control} ${
     formInputsValidity.postalCode ? "" : classes.invalid
   }`;
 
   return (
     <form className={classes.form} onSubmit={confirmHandler}>
       <div className={nameControlClasses}>
-        <label htmlFor="name">Your Name</label>
-        <input ref={nameInputRef} type="text" id="name" />
-        {!formInputsValidity.name && <p>Name Cannot be empty!</p>}
+        <label htmlFor="first-name">Your First Name</label>
+        <input ref={firstNameInputRef} type="text" id="first-name" required />
+        {!formInputsValidity.firstName && <p>Name Cannot be empty!</p>}
+      </div>
+      <div className={nameControlClasses}>
+        <label htmlFor="middle-name">Your Middle Name</label>
+        <input ref={middleNameInputRef} type="text" id="middle-name" required />
+        {!formInputsValidity.middleName && <p>Name Cannot be empty!</p>}
+      </div>
+      <div className={nameControlClasses}>
+        <label htmlFor="last-name">Your Last Name</label>
+        <input ref={lastNameInputRef} type="text" id="last-name" required />
+        {!formInputsValidity.lastName && <p>Name Cannot be empty!</p>}
+      </div>
+      <div className={phoneControlClasses}>
+        <label htmlFor="phone">Phone Number</label>
+        <input ref={phoneInputRef} type="text" id="phone" required />
+        {!formInputsValidity.Phone && <p>phone number is not valid!</p>}
       </div>
       <div className={streetControlClasses}>
-        <label htmlFor="street">Street</label>
-        <input ref={streetInputRef} type="text" id="street" />
-        {!formInputsValidity.street && <p>Street Cannot be empty!</p>}
+        <label htmlFor="address1">Address 1</label>
+        <input ref={address1InputRef} type="text" id="address1" required />
+        {!formInputsValidity.Address1 && <p>Address Cannot be empty!</p>}
       </div>
-      <div className={postalCodeControlClasses}>
-        <label htmlFor="postal">Postal Code</label>
-        <input ref={postalInputRef} type="text" id="postal" />
-        {!formInputsValidity.postalCode && <p>postal code is not valid!</p>}
+      <div className={streetControlClasses}>
+        <label htmlFor="address2">Address 2</label>
+        <input ref={address2InputRef} type="text" id="address2" required />
+        {!formInputsValidity.Address2 && <p>Address Cannot be empty!</p>}
       </div>
-      <div className={cityControlClasses}>
-        <label htmlFor="city">City</label>
-        <input ref={cityInputRef} type="text" id="city" />
-        {!formInputsValidity.city && <p>City Cannot be empty!</p>}
+
+      <div className={socialControlClasses}>
+        <label htmlFor="Linkedin">Linkedin Profile Link</label>
+        <input ref={socialInputRef} type="text" id="Linkedin" required />
+        {!formInputsValidity.Linkedin && <p>Cannot be empty!</p>}
+      </div>
+      <div className={socialControlClasses}>
+        <label htmlFor="Twitter">Twitter Profile Link</label>
+        <input ref={socialInputRef} type="text" id="Twitter" required />
+        {!formInputsValidity.Twitter && <p>Cannot be empty!</p>}
+      </div>
+      <div className={socialControlClasses}>
+        <label htmlFor="Facebook">Twitter Profile Link</label>
+        <input ref={socialInputRef} type="text" id="Facebook" required />
+        {!formInputsValidity.Facebook && <p>Cannot be empty!</p>}
       </div>
       <div className={classes.actions}>
         <button type="button" onClick={props.onCancel}>
