@@ -12,10 +12,13 @@ const isNotFiveDigits = (value) =>
 
 const Register = (props) => {
   const [formInputsValidity, setFormInputsValidity] = useState({
-    name: true,
-    street: true,
-    city: true,
-    postalCode: true,
+    firstName: true,
+    middleName: true,
+    lastName: true,
+    address1: true,
+    address2: true,
+    social: true,
+    phone: true,
   });
 
   const firstNameInputRef = useRef();
@@ -23,35 +26,47 @@ const Register = (props) => {
   const lastNameInputRef = useRef();
   const address1InputRef = useRef();
   const address2InputRef = useRef();
-  const postalInputRef = useRef();
-  const cityInputRef = useRef();
+  const phoneInputRef = useRef();
+  const socialInputRef = useRef();
 
   // we got the event object here as we wired the confirmHandler with form onSubmit
   const confirmHandler = (event) => {
     event.preventDefault();
 
-    const enteredName = nameInputRef.current.value;
-    const enteredStreet = streetInputRef.current.value;
-    const enteredPostal = postalInputRef.current.value;
-    const enteredCity = cityInputRef.current.value;
+    const enteredFirstName = firstNameInputRef.current.value;
+    const enteredMiddleName = middleNameInputRef.current.value;
+    const enteredLastName = lastNameInputRef.current.value;
+    const enteredAdress1 = address1InputRef.current.value;
+    const enteredAdress2 = address2InputRef.current.value;
+    const enteredPhone = phoneInputRef.current.value;
+    const enteredSocial = socialInputRef.current.value;
 
-    const enteredNameIsValid = !isEmpty(enteredName);
-    const enteredStreetIsValid = !isEmpty(enteredStreet);
-    const enteredPostalIsValid = !isNotFiveDigits(enteredPostal);
-    const enteredCityIsValid = !isEmpty(enteredCity);
+    const enteredFirstNameIsValid = !isEmpty(enteredFirstName);
+    const enteredMiddleNameIsValid = !isEmpty(enteredMiddleName);
+    const enteredLastNameIsValid = !isEmpty(enteredLastName);
+    const enteredAdress1IsValid = !isEmpty(enteredAdress1);
+    const enteredAdress2IsValid = !isEmpty(enteredAdress2);
+    const enteredPhoneIsValid = !isNotFiveDigits(enteredPhone);
+    const enteredSocialIsValid = !isEmpty(enteredSocial);
 
     setFormInputsValidity({
-      name: enteredNameIsValid,
-      street: enteredStreetIsValid,
-      city: enteredCityIsValid,
-      postalCode: enteredPostalIsValid,
+      firstName: enteredFirstNameIsValid,
+      middleName: enteredMiddleNameIsValid,
+      lastName: enteredLastNameIsValid,
+      address1: enteredAdress1IsValid,
+      address2: enteredAdress2IsValid,
+      social: enteredSocialIsValid,
+      phone: enteredPhoneIsValid,
     });
 
     const formIsValid =
-      enteredNameIsValid &&
-      enteredStreetIsValid &&
-      enteredCityIsValid &&
-      enteredPostalIsValid;
+      enteredFirstNameIsValid &&
+      enteredMiddleNameIsValid &&
+      enteredLastNameIsValid &&
+      enteredAdress1IsValid &&
+      enteredAdress2IsValid &&
+      enteredSocialIsValid &&
+      enteredPhoneIsValid;
 
     if (!formIsValid) {
       return;
@@ -59,10 +74,13 @@ const Register = (props) => {
 
     // submit the form
     props.onConfirm({
-      name: enteredName,
-      street: enteredStreet,
-      city: enteredCity,
-      postalCode: enteredPostal,
+      firstName: enteredFirstName,
+      middleName: enteredMiddleName,
+      lastName: enteredLastName,
+      address1: enteredAdress1,
+      address2: enteredAdress2,
+      social: enteredSocial,
+      phone: enteredPhone,
     });
   };
 

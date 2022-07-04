@@ -1,14 +1,10 @@
 .form {
-  margin: 1rem 0;
-  height: 19rem;
-  overflow: none;
-  justify-content: space-between;
-  display: block;
-  height: auto;
-  text-align: left;
-  color: white;
-  background-color: rgb(27, 39, 166);
-  padding: 5em;
+  max-width: 500px;
+  width: 100%;
+  background: #fff;
+  margin: 50px auto;
+  box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.125);
+  padding: 30px;
 }
 
 .control {
@@ -27,6 +23,7 @@
   border-radius: 4px;
   width: 20rem;
   max-width: 100%;
+  display: flex;
 }
 
 .actions {
