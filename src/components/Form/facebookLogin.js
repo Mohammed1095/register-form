@@ -17,16 +17,14 @@ function Facebooklogin() {
   };
 
   return (
-    <div>
-      <FacebookLogin
-        appId="610098780266086"
-        autoLoad={true}
-        fields="name,email,picture"
-        scope="public_profile,user_friends"
-        callback={responseFacebook}
-        icon="fa-facebook"
-      />
-    </div>
+    <FacebookLogin
+      appId="610098780266086"
+      autoLoad={true}
+      fields="name,email,picture"
+      scope="public_profile,user_friends"
+      callback={responseFacebook}
+      icon="fa-facebook"
+    />
   );
 }
 

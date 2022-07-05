@@ -343,7 +343,7 @@ const Registeration = (props) => {
         <button disabled={!formIsValid} className={classes.submit}>
           Confirm
         </button>
-        <div>
+        <div className={classes.socialLogin}>
           <div className={classes.google}>
             <Login />
           </div>
