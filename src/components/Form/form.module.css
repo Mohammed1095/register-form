@@ -1,84 +1,3 @@
-/* .form {
-  max-width: 500px;
-  width: 100%;
-  background: #fff;
-  margin: 50px auto;
-  box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.125);
-  padding: 30px;
-}
-.form .title {
-  font-size: 24px;
-  font-weight: 900;
-  margin-bottom: 25px;
-  color: #22242e;
-  text-transform: uppercase;
-  text-align: center;
-}
-
-
-
-.control {
-  margin-bottom: 1rem;
-}
-
-.control label {
-  font-weight: bold;
-  margin-bottom: 0.25rem;
-  display: block;
-}
-
-.control input {
-  font: inherit;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  width: 25rem;
-  max-width: 100%;
-  display: flex;
-}
-
-.actions {
-  display: flex;
-  justify-content: flex-end;
-  gap: 1rem;
-}
-
-.actions button {
-  font: inherit;
-  color: black;
-  cursor: pointer;
-  background-color: transparent;
-  border: none;
-  border-radius: 25px;
-  padding: 0.5rem 2rem;
-}
-
-.actions button:hover,
-.actions button:active {
-  background-color: #ffe6dc;
-}
-
-.actions .submit {
-  border: 1px solid #5a1a01;
-  background-color: black;
-  color: white;
-}
-
-.actions .submit:hover,
-.actions .submit:active {
-  background-color: #5a1a01;
-}
-
-.invalid label {
-  color: #ca3e51;
-}
-
-.invalid input {
-  border-color: #aa0b20;
-  background-color: #ffeff1;
-}
-
- */
-
 .form {
   max-width: 500px;
   width: 100%;
@@ -160,11 +79,11 @@ button:disabled:active {
   border-color: #ccc;
 }
 
-.form-actions {
+.actions {
   text-align: right;
 }
 
-.form-actions button {
+.actions button {
   margin-left: 1rem;
 }
 

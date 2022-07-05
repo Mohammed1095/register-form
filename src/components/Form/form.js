@@ -1,8 +1,31 @@
 import React from "react";
 import useInput from "../../hooks/user-input";
 import classes from "./form.module.css";
+import validator from "validator";
 
 const Registeration = (props) => {
+  const options = [
+    {
+      id: "1",
+      label: "Course1",
+      value: "course1",
+    },
+    {
+      id: "2",
+      label: "Course2",
+      value: "course2",
+    },
+    {
+      id: "3",
+      label: "Course3",
+      value: "course3",
+    },
+    {
+      id: "4",
+      label: "Course4",
+      value: "course",
+    },
+  ];
   const {
     value: enteredFirstName,
     hasError: firstNameInputHasError,
@@ -34,7 +57,7 @@ const Registeration = (props) => {
     valueChangeHandler: phoneNumberChangeHandler,
     inputBlurHandler: phoneNumberBlurHandler,
     reset: resetPhoneNumberInput,
-  } = useInput((value) => value.trim() !== "");
+  } = useInput((value) => validator.isMobilePhone(value));
   const {
     value: enteredNationalId,
     hasError: nationalIdInputHasError,
@@ -42,7 +65,7 @@ const Registeration = (props) => {
     valueChangeHandler: nationalIdChangeHandler,
     inputBlurHandler: nationalIdBlurHandler,
     reset: resetNationalIdInput,
-  } = useInput((value) => value.trim() !== "");
+  } = useInput((value) => value.trim().length !== "");
   const {
     value: enteredEmail,
     hasError: emailInputHasError,
@@ -50,7 +73,7 @@ const Registeration = (props) => {
     valueChangeHandler: emailChangeHandler,
     inputBlurHandler: emailBlurHandler,
     reset: resetEmailInput,
-  } = useInput((value) => value.includes("@"));
+  } = useInput((value) => validator.isEmail(value));
   const {
     value: enteredAddress1,
     hasError: address1InputHasError,
@@ -91,6 +114,8 @@ const Registeration = (props) => {
     inputBlurHandler: facebookBlurHandler,
     reset: resetFacebookInput,
   } = useInput((value) => value.includes("facebook"));
+  const { value: enteredCourses, valueChangeHandler: coursesChangeHandler } =
+    useInput((value) => value.trim() !== "");
 
   let formIsValid = false;
   if (
@@ -109,39 +134,19 @@ const Registeration = (props) => {
     formIsValid = true;
   }
 
-  const firstNameInputClass = firstNameInputHasError
-    ? "form-control invalid"
-    : "form-control";
-  const middleNameInputClass = firstNameInputHasError
-    ? "form-control invalid"
-    : "form-control";
-  const lastNameInputClass = firstNameInputHasError
-    ? "form-control invalid"
-    : "form-control";
+  const firstNameInputClass = firstNameInputHasError ? "form invalid" : "form";
+  const middleNameInputClass = firstNameInputHasError ? "form invalid" : "form";
+  const lastNameInputClass = firstNameInputHasError ? "form invalid" : "form";
   const phoneNumberInputClass = firstNameInputHasError
-    ? "form-control invalid"
-    : "form-control";
-  const nationalIdInputClass = firstNameInputHasError
-    ? "form-control invalid"
-    : "form-control";
-  const emailInputClass = firstNameInputHasError
-    ? "form-control invalid"
-    : "form-control";
-  const address1InputClass = firstNameInputHasError
-    ? "form-control invalid"
-    : "form-control";
-  const address2InputClass = firstNameInputHasError
-    ? "form-control invalid"
-    : "form-control";
-  const linkedinInputClass = firstNameInputHasError
-    ? "form-control invalid"
-    : "form-control";
-  const facebookInputClass = firstNameInputHasError
-    ? "form-control invalid"
-    : "form-control";
-  const twitterInputClass = firstNameInputHasError
-    ? "form-control invalid"
-    : "form-control";
+    ? "form invalid"
+    : "form";
+  const nationalIdInputClass = firstNameInputHasError ? "form invalid" : "form";
+  const emailInputClass = firstNameInputHasError ? "form invalid" : "form";
+  const address1InputClass = firstNameInputHasError ? "form invalid" : "form";
+  const address2InputClass = firstNameInputHasError ? "form invalid" : "form";
+  const linkedinInputClass = firstNameInputHasError ? "form invalid" : "form";
+  const facebookInputClass = firstNameInputHasError ? "form invalid" : "form";
+  const twitterInputClass = firstNameInputHasError ? "form invalid" : "form";
 
   // we got the event object here as we wired the confirmHandler with form onSubmit
   const submitRegisterHandler = (event) => {
@@ -160,6 +165,7 @@ const Registeration = (props) => {
       linkedin: enteredLinkedin,
       facebook: enteredFacebook,
       twitter: enteredTwitter,
+      courses: enteredCourses,
     });
 
     resetFirstNameInput();
@@ -225,20 +231,20 @@ const Registeration = (props) => {
           value={enteredPhoneNumber}
         />
         {phoneNumberInputHasError && (
-          <p className="error-text">enter Phone Number</p>
+          <p className="error-text">not a phone number</p>
         )}
       </div>
       <div className={nationalIdInputClass}>
-        <label htmlFor="id">National Id</label>
+        <label htmlFor="nationalId">National Id</label>
         <input
           type="text"
-          id="national id"
+          id="nationalId"
           onChange={nationalIdChangeHandler}
           onBlur={nationalIdBlurHandler}
           value={enteredNationalId}
         />
         {nationalIdInputHasError && (
-          <p className="error-text">enter National Id</p>
+          <p className="error-text">National Id not valid</p>
         )}
       </div>
       <div className={emailInputClass}>
@@ -250,7 +256,7 @@ const Registeration = (props) => {
           onBlur={emailBlurHandler}
           value={enteredEmail}
         />
-        {emailInputHasError && <p className="error-text">enter Email</p>}
+        {emailInputHasError && <p className="error-text">Email not valid</p>}
       </div>
       <div className={address1InputClass}>
         <label htmlFor="address"> Address 1</label>
@@ -261,7 +267,9 @@ const Registeration = (props) => {
           onBlur={address1BlurHandler}
           value={enteredAddress1}
         />
-        {address1InputHasError && <p className="error-text">enter Address 1</p>}
+        {address1InputHasError && (
+          <p className="error-text">Address 1 not valid</p>
+        )}
       </div>
       <div className={address2InputClass}>
         <label htmlFor="address"> Address 2</label>
@@ -272,7 +280,9 @@ const Registeration = (props) => {
           onBlur={address2BlurHandler}
           value={enteredAddress2}
         />
-        {address2InputHasError && <p className="error-text">enter Address 2</p>}
+        {address2InputHasError && (
+          <p className="error-text">Address 2 not valid</p>
+        )}
       </div>
       <div className={linkedinInputClass}>
         <label htmlFor="link"> Linkedin</label>
@@ -283,7 +293,9 @@ const Registeration = (props) => {
           onBlur={linkedinBlurHandler}
           value={enteredLinkedin}
         />
-        {linkedinInputHasError && <p className="error-text">enter Linkedin</p>}
+        {linkedinInputHasError && (
+          <p className="error-text">Linkedin not valid</p>
+        )}
       </div>
       <div className={twitterInputClass}>
         <label htmlFor="link"> Twitter</label>
@@ -294,7 +306,9 @@ const Registeration = (props) => {
           onBlur={twitterBlurHandler}
           value={enteredTwitter}
         />
-        {twitterInputHasError && <p className="error-text">enter Twitter</p>}
+        {twitterInputHasError && (
+          <p className="error-text">Twitter not valid</p>
+        )}
       </div>
       <div className={facebookInputClass}>
         <label htmlFor="link"> Facebook</label>
@@ -305,7 +319,19 @@ const Registeration = (props) => {
           onBlur={facebookBlurHandler}
           value={enteredFacebook}
         />
-        {facebookInputHasError && <p className="error-text">enter Facebook</p>}
+        {facebookInputHasError && (
+          <p className="error-text">Facebook not valid</p>
+        )}
+      </div>
+      <div className="select-container">
+        <label htmlFor="Courses"> Courses List</label>
+        <select onChange={coursesChangeHandler}>
+          {options.map((option) => (
+            <option value={option.value} key={option.id}>
+              {option.label}
+            </option>
+          ))}
+        </select>
       </div>
 
       <div className={classes.actions}>
