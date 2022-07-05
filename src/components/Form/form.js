@@ -3,6 +3,7 @@ import useInput from "../../hooks/user-input";
 import classes from "./form.module.css";
 import validator from "validator";
 import Login from "./googleLogin";
+import Facebooklogin from "./facebookLogin";
 
 const Registeration = (props) => {
   const options = [
@@ -342,10 +343,13 @@ const Registeration = (props) => {
         <button disabled={!formIsValid} className={classes.submit}>
           Confirm
         </button>
-      </div>
-      <div>
         <div>
-          <Login />
+          <div className={classes.google}>
+            <Login />
+          </div>
+          <div className={classes.facebook}>
+            <Facebooklogin />
+          </div>
         </div>
       </div>
     </form>
