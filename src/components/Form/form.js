@@ -2,6 +2,7 @@ import React from "react";
 import useInput from "../../hooks/user-input";
 import classes from "./form.module.css";
 import validator from "validator";
+import Login from "./googleLogin";
 
 const Registeration = (props) => {
   const options = [
@@ -324,7 +325,7 @@ const Registeration = (props) => {
         )}
       </div>
       <div className="select-container">
-        <label htmlFor="Courses"> Courses List</label>
+        <label htmlFor="Courses"> Courses </label>
         <select onChange={coursesChangeHandler}>
           {options.map((option) => (
             <option value={option.value} key={option.id}>
@@ -341,6 +342,11 @@ const Registeration = (props) => {
         <button disabled={!formIsValid} className={classes.submit}>
           Confirm
         </button>
+      </div>
+      <div>
+        <div>
+          <Login />
+        </div>
       </div>
     </form>
   );
