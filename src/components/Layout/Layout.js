@@ -1,13 +1,13 @@
 import { Fragment } from "react";
-import Register from "../Form/form";
 import MainHeader from "./MainHeader";
+import Submit from "../Form/submit";
 
 const Layout = (props) => {
   return (
     <Fragment>
       <MainHeader />
       <main>{props.children}</main>
-      <Register />
+      <Submit />
     </Fragment>
   );
 };

@@ -6,9 +6,17 @@
   box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.125);
   padding: 30px;
 }
+.form .title {
+  font-size: 24px;
+  font-weight: 900;
+  margin-bottom: 25px;
+  color: #22242e;
+  text-transform: uppercase;
+  text-align: center;
+}
 
 .control {
-  margin-bottom: 0.5rem;
+  margin-bottom: 1rem;
 }
 
 .control label {
@@ -21,7 +29,7 @@
   font: inherit;
   border: 1px solid #ccc;
   border-radius: 4px;
-  width: 20rem;
+  width: 25rem;
   max-width: 100%;
   display: flex;
 }
@@ -55,7 +63,7 @@
 
 .actions .submit:hover,
 .actions .submit:active {
-  background-color: white;
+  background-color: #5a1a01;
 }
 
 .invalid label {
