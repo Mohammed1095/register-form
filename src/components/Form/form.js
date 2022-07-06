@@ -343,11 +343,12 @@ const Registeration = (props) => {
         <button disabled={!formIsValid} className={classes.submit}>
           Confirm
         </button>
+        <hr />
         <div className={classes.socialLogin}>
-          <div className={classes.google}>
+          <div className={classes.signInButton}>
             <Login />
           </div>
-          <div className={classes.facebook}>
+          <div className={classes.btnFacebook}>
             <Facebooklogin />
           </div>
         </div>

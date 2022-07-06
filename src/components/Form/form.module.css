@@ -103,24 +103,24 @@ button:disabled:active {
 .socialLogin {
   display: flex;
 }
-/* .facebook {
-  display: inline-block;
-  padding: 0.35em 1.2em;
-  border: 0.1em solid #ffffff;
-  margin: 0 0.3em 0.3em 0;
-  border-radius: 0.12em;
-  box-sizing: border-box;
-  text-decoration: none;
-  font-family: "Roboto", sans-serif;
-  font-weight: 300;
-  color: #ffffff;
+
+.signInButton {
+  float: none;
+  position: static;
+  display: block;
+  margin: auto;
+  width: max-content;
+  color: black !important;
+  font-weight: bold !important;
+}
+
+.btnFacebook {
+  width: max-content;
+  height: auto;
+  border-radius: 4px;
+  color: white;
+  border: 0px transparent;
   text-align: center;
-  transition: all 0.2s;
-}
-*/
-.google {
-  width: 200px;
-}
-.facebook {
-  width: 200px;
+  margin: auto;
+  display: block;
 }
