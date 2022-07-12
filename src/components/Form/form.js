@@ -252,7 +252,7 @@ const Registeration = (props) => {
       <div className={emailInputClass}>
         <label htmlFor="email">Email</label>
         <input
-          type="text"
+          type="email"
           id="email"
           onChange={emailChangeHandler}
           onBlur={emailBlurHandler}
@@ -289,7 +289,7 @@ const Registeration = (props) => {
       <div className={linkedinInputClass}>
         <label htmlFor="link"> Linkedin</label>
         <input
-          type="text"
+          type="url"
           id="link"
           onChange={linkedinChangeHandler}
           onBlur={linkedinBlurHandler}
@@ -302,7 +302,7 @@ const Registeration = (props) => {
       <div className={twitterInputClass}>
         <label htmlFor="link"> Twitter</label>
         <input
-          type="text"
+          type="url"
           id="link"
           onChange={twitterChangeHandler}
           onBlur={twitterBlurHandler}
@@ -315,7 +315,7 @@ const Registeration = (props) => {
       <div className={facebookInputClass}>
         <label htmlFor="link"> Facebook</label>
         <input
-          type="text"
+          type="url"
           id="link"
           onChange={facebookChangeHandler}
           onBlur={facebookBlurHandler}
